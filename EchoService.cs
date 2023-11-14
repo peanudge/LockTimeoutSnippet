@@ -26,7 +26,7 @@ public class BottleNeckEchoService
             // TODO: here
 
             // INFO: Simulate a long running operation
-            var cancellationTriggered = source.Token.WaitHandle.WaitOne(_operationTime.Milliseconds);
+            var cancellationTriggered = source.Token.WaitHandle.WaitOne((int)_operationTime.TotalMilliseconds);
             if (cancellationTriggered)
             {
                 Console.WriteLine($"{DateTime.Now} {message} (timeout) in action. waiting: {_counter - 1}");
